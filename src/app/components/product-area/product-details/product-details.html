@@ -1,0 +1,21 @@
+<div>
+
+    @if(product) {
+        <h3>Name: {{product.name}}</h3>
+        <h3>Price: {{product.price | currency:"ILS" }}</h3>
+        <h3>Stock: {{product.stock}}</h3>
+        <img [src]="product.imageUrl">
+        <br><br>
+
+        <a routerLink="/products">Back</a>
+
+        <span> | </span>
+
+        <a [routerLink]="'/products/edit/' + product.id">Edit</a>
+
+        <span> | </span>
+
+        <button (click)="deleteMe()">Delete (ורד רוצה לחצן)</button>
+    }
+
+</div>

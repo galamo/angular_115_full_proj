@@ -1,0 +1,12 @@
+<div>
+
+    <!-- <span *ngFor="let p of products"> {{p.name}} </span> -->
+
+    @for (p of products; track $index) {
+        <app-product-card [product]="p" [id]="'prod' + p.id"></app-product-card>
+    }
+
+
+    
+
+</div>

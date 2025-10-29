@@ -1,0 +1,25 @@
+<div class="box">
+
+    <div *ngIf="isLoading"> Loading Number...</div>
+    <button (click)="generateSingleRandomNumber()">
+        Generate Single Random Number
+    </button>
+    <div> {{num}}</div>
+
+    <hr>
+
+    <button (click)="generateMultipleRandomNumbers()">
+        Generate Multiple Random Numbers
+    </button>
+    @for (n of arr; track $index) {
+    <span>{{n}} | </span>
+    }
+
+    <hr>
+
+    <button (click)="generateSingleRandomNumber2()">
+        Generate Single Random Number
+    </button>
+    <span>{{num2}}</span>
+
+</div>

@@ -1,0 +1,17 @@
+<div class="box">
+
+    <!-- Property Binding: -->
+    <label [title]="tooltip">Search: </label>
+
+    <!-- Two-Way Binding: -->
+    <input type="search" name="search" [(ngModel)]="textToSearch" #searchBox>
+
+    <!-- Event Binding: -->
+    <button (click)="search($event)">🔍</button>
+
+    <!-- Interpolation:  -->
+    <span [style]="{ color: searchBox.value }">Searching for: {{textToSearch}}</span>
+
+    <button (click)="showColor()">🎨</button>
+
+</div>
