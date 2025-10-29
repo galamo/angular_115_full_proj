@@ -4,11 +4,12 @@ import { Clicker } from "../../shared-area/clicker/clicker";
 import { HappyButton } from "../../shared-area/happy-button/happy-button";
 import { Title } from '@angular/platform-browser';
 import { Randomity } from "../../shared-area/randomity/randomity";
-import { Users } from '../../shared-area/users/users';
+import { StudentsListComponent } from '../../shared-area/users/users';
+import { Total } from '../../shared-area/total/total';
 
 @Component({
     selector: 'app-home',
-    imports: [Search, Clicker, HappyButton, Randomity,Users],
+    imports: [Search, Clicker, HappyButton, Randomity, StudentsListComponent, Total],
     templateUrl: './home.html',
     styleUrl: './home.css'
 })

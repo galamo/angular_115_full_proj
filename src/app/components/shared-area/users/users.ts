@@ -1,21 +1,33 @@
+import { Component, OnInit } from '@angular/core';
+import { Student, StudentsService } from '../../../services/student-service';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { Observable, of } from 'rxjs';
+
 
 @Component({
-    selector: 'app-users',
-    imports: [CommonModule],
-    templateUrl: './users.html',
-    styleUrl: './users.css'
+    standalone: true,
+    providers: [CommonModule],
+    selector: 'app-students-list',
+    templateUrl: "./users.html"
 })
-export class Users {
+export class StudentsListComponent implements OnInit {
+    students: Student[] = [];
 
-    students$: Observable<string[]> = of(["Kalimi", "Talya", "Idan", "Tal", "Ofek"])
-    studentsLocal: string[] = []
+    constructor(private studentsService: StudentsService) { }
 
-    ngOnInit(): void {
-        this.students$.subscribe((names) => {
-            this.studentsLocal = names;
-        })
+    ngOnInit() {
+        this.studentsService.students$.subscribe(students => {
+            console.log("This should run every change!")
+            console.log(students)
+            this.students = students;
+        });
+    }
+
+    addRandomStudent() {
+        const newStudent: Student = {
+            id: Math.random(),
+            name: 'Student ' + (this.students.length + 1),
+            grade: 'A'
+        };
+        this.studentsService.addStudent(newStudent);
     }
 }

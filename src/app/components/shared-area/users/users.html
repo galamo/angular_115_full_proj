@@ -1,3 +1,13 @@
 <div>
-    <h1 *ngFor="let s of studentsLocal">{{s}}</h1>
+    <h3 style="color:red">Students</h3>
+    <ul>
+        @for (student of students; track $index) {
+        <span>{{student.id}} | </span>
+        }
+
+
+
+    </ul>
+
+    <button (click)="addRandomStudent()">Add Random Student</button>
 </div>
